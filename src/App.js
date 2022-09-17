@@ -1,15 +1,10 @@
-import './App.css';
-import Simpson from "./components/simpsons/Simpson";
-import Simpsons from "./components/simpsons/Simpsons";
+import Characters from "./components/characters/Characters";
 
 function App() {
-  return (
-    <div>
+  return (<div>
+      <Characters/>
 
-    <Simpsons/>
-
-    </div>
-  );
+  </div>);
 }
 
 export default App;
