@@ -5,7 +5,20 @@ const init = (initialValue) => {
 }
 
 const reducer = (state, action)=>{
-  return {...state}
+  switch (action.type) {
+      case'INC1':
+          return {...state, counter1: state.counter1 + 1}
+
+      case 'DEC1':
+          return {...state, counter1: state.counter1 - 1}
+
+      case 'RESET1':
+          return {...state, counter1: 0}
+
+      case'SET1':
+          return{...state,counter1: action.payload}
+  }
+    return {...state}
 }
 
 const App = () => {
@@ -14,9 +27,10 @@ const App = () => {
     <div>
       <h1>counter1:{state.counter1}</h1>
       <h1>counter2:{state.counter2}</h1>
-        <button>inc</button>
-        <button>dec</button>
-        <button>reset</button>
+        <button onClick={()=> dispatch({type:'INC1'})}>inc</button>
+        <button onClick={()=>dispatch({type:'DEC1'})}>dec</button>
+        <button onClick={()=>dispatch({type:'RESET1'})}>reset</button>
+        <button onClick={()=>dispatch({type:'SET1', payload:10})}>set</button>
     </div>
   );
 };
